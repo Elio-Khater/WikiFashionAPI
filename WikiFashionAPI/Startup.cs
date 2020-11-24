@@ -6,6 +6,8 @@ using BLL.Interfaces;
 using BLL.Managers;
 using DAL.Interfaces;
 using DAL.Repositories;
+using DAL_EF.Implementations;
+using DAL_EF.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,6 +41,8 @@ namespace WikiFashionAPI
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IAgenciesManager, AgenciesManager>();
             services.AddScoped<IAgenciesRepository, AgenciesRepository>();
+            services.AddScoped<ICategoriesRepositoryEF, CategoriesRepositoryEF>();
+            services.AddScoped<IUsersRepositoryEF, UsersRepositoryEF>();
             services.AddCors(options =>
             {
                 options.AddPolicy(origin,
